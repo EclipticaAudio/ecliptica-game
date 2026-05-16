@@ -431,15 +431,22 @@ export default function PixelEarbudGame() {
         </div>
 
         {/* Ecliptica shop */}
-        <div style={{ position:"absolute", right:65, bottom:0, display:"flex", flexDirection:"column", alignItems:"center" }}>
-          <div style={{ width:0, height:0, borderLeft:"38px solid transparent", borderRight:"38px solid transparent", borderBottom:"18px solid #c0392b" }} />
-          <div style={{ width:76, height:46, background:"#d4a86a", border:"3px solid #8B5e1a", position:"relative" }}>
-            <div style={{ position:"absolute", top:4, left:5, right:5, background:"#4a90d9", border:"2px solid #1a5a9a", textAlign:"center", padding:"2px 0" }}>
-              <span style={{ fontSize:6, color:"#fff", fontFamily:FONT }}>ECLIPTICA</span>
+        <div style={{ position:"absolute", right:62, bottom:0, display:"flex", flexDirection:"column", alignItems:"center" }}>
+          {/* Roof — flat pixel style, no CSS triangle */}
+          <div style={{ width:54, height:10, background:"#c0392b" }} />
+          <div style={{ width:48, height:8, background:"#a93226", marginTop:-2 }} />
+          {/* Wall */}
+          <div style={{ width:54, height:36, background:"#d4a86a", border:"2px solid #8B5e1a", position:"relative" }}>
+            {/* Ecliptica sign strip */}
+            <div style={{ position:"absolute", top:3, left:3, right:3, height:10, background:"#4a90d9", border:"1px solid #1a5a9a", display:"flex", alignItems:"center", justifyContent:"center" }}>
+              <span style={{ fontSize:5, color:"#fff", fontFamily:FONT, letterSpacing:1 }}>ECLIPTICA</span>
             </div>
-            <div style={{ position:"absolute", bottom:0, left:"50%", transform:"translateX(-50%)", width:16, height:22, background:"#8B4513", border:"2px solid #5a2d0a" }} />
-            <div style={{ position:"absolute", top:22, left:4, width:12, height:10, background:"#87CEEB", border:"2px solid #5a3010" }} />
-            <div style={{ position:"absolute", top:22, right:4, width:12, height:10, background:"#87CEEB", border:"2px solid #5a3010" }} />
+            {/* Door */}
+            <div style={{ position:"absolute", bottom:0, left:"50%", transform:"translateX(-50%)", width:12, height:18, background:"#8B4513", border:"1px solid #5a2d0a" }} />
+            {/* Window left */}
+            <div style={{ position:"absolute", top:16, left:3, width:10, height:8, background:"#87CEEB", border:"1px solid #5a3010" }} />
+            {/* Window right */}
+            <div style={{ position:"absolute", top:16, right:3, width:10, height:8, background:"#87CEEB", border:"1px solid #5a3010" }} />
           </div>
         </div>
 
