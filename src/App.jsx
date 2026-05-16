@@ -486,7 +486,7 @@ export default function PixelEarbudGame() {
       <div style={{ fontSize: "clamp(13px,4vw,18px)", color: "#f5c518", textAlign: "center", lineHeight: 1.8, marginBottom: 8 }}>
         YOU GOT YOUR<br />EARBUDS BACK!
       </div>
-      <div style={{ fontSize: "clamp(7px,2vw,9px)", color: "#aaa", marginBottom: 16 }}>by Ecliptica Earbuds</div>
+      <div style={{ fontSize: "clamp(7px,2vw,9px)", color: "#aaa", marginBottom: 16 }}>Thanks for playing!</div>
 
       {/* Score breakdown */}
       <div style={{ background: "rgba(0,0,0,0.4)", border: "1px solid #2a4a2a", padding: "12px 20px", marginBottom: 20, textAlign: "center", width: "min(280px,85vw)" }}>
