@@ -1,8 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 
-const BIN_ID     = "6a068089c0954111d826436c";
-const MASTER_KEY = "$2a$10$3GR5GMKjpT.rftahwRKcdeCLkEHlCzveUZAvOHGfr89gy1SJNecly";
-const API        = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
 
 const TILE          = 18;
 const COLS          = 20;
@@ -233,7 +230,7 @@ export default function PixelEarbudGame() {
   const mobileKeys = useRef({ up: false, down: false, left: false, right: false });
 
   useEffect(() => {
-    fetch(`${API}/latest`, { headers: { "X-Master-Key": MASTER_KEY } })
+    fetch("https://api.jsonbin.io/v3/b/6a068089c0954111d826436c/latest")
       .then(r => r.json())
       .then(d => setLeaderboard(Array.isArray(d?.record?.leaderboard) ? d.record.leaderboard : []))
       .catch(() => {})
@@ -296,7 +293,7 @@ export default function PixelEarbudGame() {
           const elapsedSec = (performance.now() - g.startTime) / 1000;
           g.elapsedMs = performance.now() - g.startTime;
           // Time multiplier: under 30s = 3x, under 60s = 2x, under 90s = 1.5x, else 1x
-          const mult = elapsedSec < 30 ? 3 : elapsedSec < 60 ? 2 : elapsedSec < 90 ? 1.5 : 1;
+          const mult = elapsedSec < 30 ? 2 : elapsedSec < 60 ? 1.5 : elapsedSec < 90 ? 1.2 : 1;
           const final = Math.round(g.score * mult);
           setFinalScore({ base: g.score, mult, final, elapsedMs: g.elapsedMs });
           setScreen("win"); return;
@@ -350,17 +347,19 @@ export default function PixelEarbudGame() {
     if (saving || saved) return;
     setSaving(true);
     try {
-      const res  = await fetch(`${API}/latest`, { headers: { "X-Master-Key": MASTER_KEY } });
+      const res = await fetch("https://api.jsonbin.io/v3/b/6a068089c0954111d826436c/latest");
       const data = await res.json();
       const existing = Array.isArray(data?.record?.leaderboard) ? data.record.leaderboard : [];
       const scoreVal = typeof finalScore === "object" ? finalScore.final : finalScore;
       const updated  = [...existing, { name: name.trim() || "ANON", score: scoreVal }]
         .sort((a, b) => b.score - a.score).slice(0, 20);
-      await fetch(API, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json", "X-Master-Key": MASTER_KEY },
-        body: JSON.stringify({ leaderboard: updated }),
-      });
+      await fetch("/api/save-score", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({ name, score }),
+});
       setLeaderboard(updated); setSaved(true);
     } catch { alert("Could not save. Check connection."); }
     finally { setSaving(false); }
@@ -546,7 +545,7 @@ export default function PixelEarbudGame() {
       </div>
 
       {/* D-pad */}
-      <div style={{ display: "grid", gridTemplateColumns: "54px 54px 54px", gridTemplateRows: "54px 54px", gap: 6, marginTop: 4 }}>
+    <div style={{ display: "grid", gridTemplateColumns: "68px 68px 68px", gridTemplateRows: "68px 68px", gap: 16, marginTop: 10 }}>
         <div />
         <DPadBtn label="▲" dir="up"    mobileKeys={mobileKeys} />
         <div />
@@ -557,3 +556,4 @@ export default function PixelEarbudGame() {
     </div>
   );
 }
+ 
