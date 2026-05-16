@@ -184,7 +184,7 @@ function DPadBtn({ label, dir, mobileKeys }) {
       onPointerLeave={e => { e.preventDefault(); mobileKeys.current[dir] = false; }}
       onPointerCancel={e => { e.preventDefault(); mobileKeys.current[dir] = false; }}
       style={{
-        width: 54, height: 54, display: "flex", alignItems: "center", justifyContent: "center",
+        width: 68, height: 68, display: "flex", alignItems: "center", justifyContent: "center",
         background: "rgba(255,255,255,0.13)", border: "2px solid rgba(255,255,255,0.28)",
         borderRadius: 10, fontSize: 24, color: "#fff",
         userSelect: "none", WebkitUserSelect: "none", touchAction: "none", cursor: "pointer",
@@ -543,7 +543,7 @@ export default function PixelEarbudGame() {
       </div>
 
       {/* D-pad */}
-      <div style={{ display: "grid", gridTemplateColumns: "54px 54px 54px", gridTemplateRows: "54px 54px", gap: 6, marginTop: 4 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "68px 68px 68px", gridTemplateRows: "68px 68px", gap: 16, marginTop: 10 }}>
         <div />
         <DPadBtn label="▲" dir="up"    mobileKeys={mobileKeys} />
         <div />
