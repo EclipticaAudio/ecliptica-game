@@ -399,18 +399,10 @@ export default function PixelEarbudGame() {
           ))}
         </div>
 
-        {/* Title sign — wooden board like reference image */}
+       {/* Title sign — post below board */}
         <div style={{ display:"flex", justifyContent:"center", padding:"12px 20px 0" }}>
-          <div style={{ position:"relative", display:"inline-block" }}>
-            {/* Sign post */}
-            <div style={{ width:10, height:28, background:"#8B6914", margin:"0 auto" }} />
-            {/* Sign board */}
-            <div style={{
-              background:"#c8a050", border:"4px solid #8B5e1a",
-              padding:"10px 20px", textAlign:"center", marginTop:-2,
-              boxShadow:"inset 0 2px 0 #e8c070, inset 0 -2px 0 #8B5e1a",
-              minWidth: 220,
-            }}>
+          <div style={{ display:"flex", flexDirection:"column", alignItems:"center" }}>
+            <div style={{ background:"#c8a050", border:"4px solid #8B5e1a", padding:"10px 20px", textAlign:"center", boxShadow:"inset 0 2px 0 #e8c070, inset 0 -2px 0 #8B5e1a", minWidth:220 }}>
               <div style={{ fontSize:"clamp(10px,3.5vw,14px)", color:"#3d1f00", lineHeight:1.6, textShadow:"1px 1px #e8c070" }}>
                 COLLECT YOUR<br/>EARBUDS
               </div>
@@ -418,18 +410,40 @@ export default function PixelEarbudGame() {
                 by Ecliptica Earbuds
               </div>
             </div>
+            <div style={{ width:10, height:28, background:"#8B6914" }} />
           </div>
         </div>
 
-        {/* Pixel tree right side */}
-        <div style={{ position:"absolute", right:10, bottom:0, width:36 }}>
-          <div style={{ width:10, height:18, background:"#8B6914", margin:"0 auto" }} />
-          <div style={{ width:36, height:20, background:"#2d6e1b", marginTop:-6 }} />
-          <div style={{ width:26, height:16, background:"#3a8a26", margin:"-4px auto 0" }} />
-          <div style={{ width:16, height:12, background:"#4aaa30", margin:"-4px auto 0" }} />
+        {/* Tree right */}
+        <div style={{ position:"absolute", right:14, bottom:0, display:"flex", flexDirection:"column", alignItems:"center" }}>
+          <div style={{ width:16, height:12, background:"#4aaa30" }} />
+          <div style={{ width:26, height:16, background:"#3a8a26" }} />
+          <div style={{ width:36, height:20, background:"#2d6e1b" }} />
+          <div style={{ width:10, height:18, background:"#8B6914" }} />
         </div>
 
-        {/* Pixel cat / critter bottom-left like reference */}
+        {/* Tree left */}
+        <div style={{ position:"absolute", left:50, bottom:0, display:"flex", flexDirection:"column", alignItems:"center" }}>
+          <div style={{ width:12, height:10, background:"#4aaa30" }} />
+          <div style={{ width:22, height:14, background:"#3a8a26" }} />
+          <div style={{ width:30, height:18, background:"#2d6e1b" }} />
+          <div style={{ width:8, height:16, background:"#8B6914" }} />
+        </div>
+
+        {/* Ecliptica shop */}
+        <div style={{ position:"absolute", right:65, bottom:0, display:"flex", flexDirection:"column", alignItems:"center" }}>
+          <div style={{ width:0, height:0, borderLeft:"38px solid transparent", borderRight:"38px solid transparent", borderBottom:"18px solid #c0392b" }} />
+          <div style={{ width:76, height:46, background:"#d4a86a", border:"3px solid #8B5e1a", position:"relative" }}>
+            <div style={{ position:"absolute", top:4, left:5, right:5, background:"#4a90d9", border:"2px solid #1a5a9a", textAlign:"center", padding:"2px 0" }}>
+              <span style={{ fontSize:6, color:"#fff", fontFamily:FONT }}>ECLIPTICA</span>
+            </div>
+            <div style={{ position:"absolute", bottom:0, left:"50%", transform:"translateX(-50%)", width:16, height:22, background:"#8B4513", border:"2px solid #5a2d0a" }} />
+            <div style={{ position:"absolute", top:22, left:4, width:12, height:10, background:"#87CEEB", border:"2px solid #5a3010" }} />
+            <div style={{ position:"absolute", top:22, right:4, width:12, height:10, background:"#87CEEB", border:"2px solid #5a3010" }} />
+          </div>
+        </div>
+
+        {/* Cat */}
         <div style={{ position:"absolute", left:12, bottom:4, fontSize:22 }}>🐱</div>
 
         {/* Grass strip */}
