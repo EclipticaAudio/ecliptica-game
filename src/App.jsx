@@ -410,7 +410,7 @@ export default function PixelEarbudGame() {
                 by Ecliptica Earbuds
               </div>
             </div>
-            <div style={{ width:10, height:28, background:"#8B6914" }} />
+           <div style={{ width:10, height:52, background:"#8B6914" }} />
           </div>
         </div>
 
@@ -450,8 +450,7 @@ export default function PixelEarbudGame() {
           </div>
         </div>
 
-        {/* Cat */}
-        <div style={{ position:"absolute", left:12, bottom:4, fontSize:22 }}>🐱</div>
+      
 
         {/* Grass strip */}
         <div style={{ height:14, background:"#4a9630", marginTop:8, borderTop:"3px solid #5db048", position:"relative" }}>
