@@ -370,6 +370,7 @@ export default function PixelEarbudGame() {
         @keyframes birdfloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
         @keyframes sunpulse  { 0%,100%{opacity:1} 50%{opacity:0.7} }
         @keyframes cloudmove { 0%{transform:translateX(0)} 100%{transform:translateX(18px)} }
+        @keyframes signfloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
       `}</style>
 
       {/* ── Sky panel ── */}
@@ -392,25 +393,17 @@ export default function PixelEarbudGame() {
           </div>
         </div>
 
-        {/* Pixel birds */}
-        <div style={{ display:"flex", justifyContent:"space-around", padding:"8px 20px 0", animation:"birdfloat 2.5s ease-in-out infinite" }}>
-          {["#2d5a8a","#3a6a9a"].map((c,i) => (
-            <div key={i} style={{ color: c, fontSize: 18, transform: i===1?"scaleX(-1)":"none" }}>🐦</div>
-          ))}
-        </div>
 
-       {/* Title sign — post below board */}
-        <div style={{ display:"flex", justifyContent:"center", padding:"12px 20px 0" }}>
-          <div style={{ display:"flex", flexDirection:"column", alignItems:"center" }}>
-            <div style={{ background:"#c8a050", border:"4px solid #8B5e1a", padding:"10px 20px", textAlign:"center", boxShadow:"inset 0 2px 0 #e8c070, inset 0 -2px 0 #8B5e1a", minWidth:220 }}>
-              <div style={{ fontSize:"clamp(10px,3.5vw,14px)", color:"#3d1f00", lineHeight:1.6, textShadow:"1px 1px #e8c070" }}>
-                COLLECT YOUR<br/>EARBUDS
-              </div>
-              <div style={{ fontSize:"clamp(6px,1.8vw,7px)", color:"#5a3010", marginTop:4, letterSpacing:1 }}>
-                by Ecliptica Earbuds
-              </div>
+
+      {/* Title sign — floating, no post */}
+        <div style={{ display:"flex", justifyContent:"center", paddingTop:12 }}>
+          <div style={{ background:"#c8a050", border:"4px solid #8B5e1a", padding:"10px 20px", textAlign:"center", boxShadow:"inset 0 2px 0 #e8c070, inset 0 -2px 0 #8B5e1a", minWidth:220, animation:"signfloat 3.5s ease-in-out infinite" }}>
+            <div style={{ fontSize:"clamp(10px,3.5vw,14px)", color:"#3d1f00", lineHeight:1.6, textShadow:"1px 1px #e8c070" }}>
+              COLLECT YOUR<br/>EARBUDS
             </div>
-           <div style={{ width:10, height:52, background:"#8B6914" }} />
+            <div style={{ fontSize:"clamp(6px,1.8vw,7px)", color:"#5a3010", marginTop:4, letterSpacing:1 }}>
+              by Ecliptica Earbuds
+            </div>
           </div>
         </div>
 
@@ -451,7 +444,6 @@ export default function PixelEarbudGame() {
         </div>
 
       
-
         {/* Grass strip */}
         <div style={{ height:14, background:"#4a9630", marginTop:8, borderTop:"3px solid #5db048", position:"relative" }}>
           {/* Grass tufts */}
