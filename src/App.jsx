@@ -183,11 +183,14 @@ function DPadBtn({ label, dir, mobileKeys }) {
       onPointerUp={e => { e.preventDefault(); mobileKeys.current[dir] = false; }}
       onPointerLeave={e => { e.preventDefault(); mobileKeys.current[dir] = false; }}
       onPointerCancel={e => { e.preventDefault(); mobileKeys.current[dir] = false; }}
+      onContextMenu={e => e.preventDefault()}
       style={{
         width: 68, height: 68, display: "flex", alignItems: "center", justifyContent: "center",
         background: "rgba(255,255,255,0.13)", border: "2px solid rgba(255,255,255,0.28)",
         borderRadius: 10, fontSize: 24, color: "#fff",
-        userSelect: "none", WebkitUserSelect: "none", touchAction: "none", cursor: "pointer",
+        userSelect: "none", WebkitUserSelect: "none",
+        WebkitTouchCallout: "none", touchAction: "none",
+        cursor: "pointer", WebkitUserDrag: "none",
       }}
     >
       {label}
@@ -554,14 +557,17 @@ export default function PixelEarbudGame() {
         🟡 collect earbud +10 &nbsp;·&nbsp; 🔴 thief contact −3 &nbsp;·&nbsp; thief steals earbud −5
       </div>
 
-      {/* D-pad */}
-      <div style={{ display: "grid", gridTemplateColumns: "68px 68px 68px", gridTemplateRows: "68px 68px", gap: 16, marginTop: 10 }}>
+     {/* D-pad */}
+      <div style={{ display: "grid", gridTemplateColumns: "68px 68px 68px", gridTemplateRows: "68px 68px 68px", gap: 10, marginTop: 10 }}>
         <div />
         <DPadBtn label="▲" dir="up"    mobileKeys={mobileKeys} />
         <div />
         <DPadBtn label="◀" dir="left"  mobileKeys={mobileKeys} />
-        <DPadBtn label="▼" dir="down"  mobileKeys={mobileKeys} />
+        <div />
         <DPadBtn label="▶" dir="right" mobileKeys={mobileKeys} />
+        <div />
+        <DPadBtn label="▼" dir="down"  mobileKeys={mobileKeys} />
+        <div />
       </div>
     </div>
   );
